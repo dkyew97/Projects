@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="APUPayModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TransactionRecord">
+          <Key>
+            <PropertyRef Name="transaction_id" />
+          </Key>
+          <Property Name="transaction_id" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="transaction_date" Type="date" Nullable="false" />
+          <Property Name="store_id" Type="varchar" MaxLength="50" />
+          <Property Name="user_id" Type="varchar" MaxLength="9" />
+          <Property Name="transaction_amount" Type="money" />
+        </EntityType>
+        <Function Name="sp_getAllHistoryStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="storeID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_getAllHistoryUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_getHistoryStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="storeID" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="APUPayModel1StoreContainer">
+          <EntitySet Name="TransactionRecord" EntityType="Self.TransactionRecord" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="APUPayModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="APUPayEntities1" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="getrecord" ReturnType="Collection(APUPayModel1.getrecord_Result)" />
+          <FunctionImport Name="getrecordwithdate" ReturnType="Collection(APUPayModel1.getrecordwithdate_Result)">
+          <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getHistoryStore" ReturnType="Collection(APUPayModel1.sp_getHistoryStore_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="storeID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getAllHistoryStore" ReturnType="Collection(APUPayModel1.sp_getAllHistoryStore_Result)">
+          <Parameter Name="storeID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getAllHistoryUser" ReturnType="Collection(APUPayModel1.sp_getAllHistoryUser_Result)">
+          <Parameter Name="userid" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="TransactionRecords" EntityType="APUPayModel1.TransactionRecord" />
+        </EntityContainer>
+        <ComplexType Name="getrecord_Result">
+          <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+          <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+          <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getrecordwithdate_Result">
+          <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+          <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+          <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_getHistoryStore_Result">
+          <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+          <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+          <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_getAllHistoryStore_Result">
+          <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+          <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+          <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_getAllHistoryUser_Result">
+          <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+          <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+          <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <EntityType Name="TransactionRecord">
+          <Key>
+            <PropertyRef Name="transaction_id" />
+          </Key>
+          <Property Name="transaction_id" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="store_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_id" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="transaction_amount" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="APUPayModel1StoreContainer" CdmEntityContainer="APUPayEntities1">
+          <FunctionImportMapping FunctionImportName="sp_getHistoryStore" FunctionName="APUPayModel1.Store.sp_getHistoryStore">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="APUPayModel1.sp_getHistoryStore_Result">
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="transaction_amount" ColumnName="transaction_amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getAllHistoryStore" FunctionName="APUPayModel1.Store.sp_getAllHistoryStore">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="APUPayModel1.sp_getAllHistoryStore_Result">
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="transaction_amount" ColumnName="transaction_amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getAllHistoryUser" FunctionName="APUPayModel1.Store.sp_getAllHistoryUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="APUPayModel1.sp_getAllHistoryUser_Result">
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="transaction_amount" ColumnName="transaction_amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TransactionRecords">
+            <EntityTypeMapping TypeName="APUPayModel1.TransactionRecord">
+              <MappingFragment StoreEntitySet="TransactionRecord">
+                <ScalarProperty Name="transaction_amount" ColumnName="transaction_amount" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

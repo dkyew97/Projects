@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<ImageView
+		android:id = "@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_gravity = "center"
+		android:layout_centerInParent="true"
+        android:layout_margin="50dp"
+		android:src = "@drawable/check_outline"/>
+	<TextView
+	android:id="@+id/ThankYou"
+	android:text=""
+	android:layout_below = "@+id/test"
+    android:gravity = "center"
+	android:layout_centerInParent="true"
+	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:layout_marginBottom="60dp"
+	android:textColor = "@color/material_blue_grey_800"
+	android:textSize = "30dp"/>
+	<TextView
+	android:id="@+id/lblReceipt"
+	android:text=""
+	android:layout_below = "@+id/test"
+	android:layout_centerInParent="true"
+	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:textColor = "@color/material_blue_grey_800"
+	android:textSize = "30dp"/>
+	<TextView
+	android:id="@+id/txtReceipt"
+	android:text=""
+	android:layout_below = "@+id/test"
+	android:layout_centerInParent="true"
+	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:textColor = "@color/material_blue_grey_800"
+	android:textSize = "20dp"/>
+	<TextView
+	android:id="@+id/lblBalance"
+	android:text=""
+	android:layout_below = "@+id/test"
+	android:layout_centerInParent="true"
+	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:textColor = "@color/material_blue_grey_800"
+	android:textSize = "30dp"/>
+	<TextView
+	android:id="@+id/txtBalance"
+	android:text=""
+	android:layout_below = "@+id/test"
+	android:layout_centerInParent="true"
+	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:textColor = "@color/material_blue_grey_800"
+	android:textSize = "20dp"/>
+
+	<Button
+	android:id = "@+id/btnReturn"
+	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:background = "@drawable/bckgroundturquise"
+	android:text="Return"/>
+</LinearLayout>

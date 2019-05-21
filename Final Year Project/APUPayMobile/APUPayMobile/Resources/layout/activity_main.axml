@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<ProgressBar
+	    android:id="@+id/progressBar1"
+	    style="?android:attr/progressBarStyleLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:layout_gravity = "center"
+		android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true"/>
+	<LinearLayout
+	android:orientation = "vertical"
+	android:gravity = "center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	
+	<ImageView
+	android:layout_marginTop = "50dp"
+	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:id = "@+id/logoView"/>
+	<LinearLayout
+		android:layout_marginTop = "50dp"
+		android:orientation = "vertical"
+		android:gravity = "center"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<EditText
+			android:drawableLeft = "@drawable/account"
+			android:hint = "TP Number"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id = "@+id/loginUsername"/>
+		<EditText
+			android:drawableLeft = "@drawable/textbox_password"
+			android:hint = "Password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType = "textPassword"
+			android:id = "@+id/loginPassword"/>
+		<Button
+			android:text = "Login"
+			android:background = "@drawable/btnstylepink"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id = "@+id/btnLogin"/>
+			</LinearLayout>
+	</LinearLayout>
+</RelativeLayout>

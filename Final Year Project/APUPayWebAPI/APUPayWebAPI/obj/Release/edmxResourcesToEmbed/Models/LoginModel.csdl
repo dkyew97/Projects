@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="APUPayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="APUPayEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_updatebalance">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="balance" Mode="In" Type="Decimal" />
+      <Parameter Name="type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_registration">
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="balance" Mode="In" Type="Decimal" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sekecall" ReturnType="Collection(APUPayModel.sekecall_Result)" />
+    <FunctionImport Name="sp_insertsho">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="APUUsers" EntityType="APUPayModel.APUUser" />
+  </EntityContainer>
+  <ComplexType Name="sekecall_Result">
+    <Property Type="String" Name="user_id" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="user_password" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="user_email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="user_type" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="user_balance" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="full_name" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <EntityType Name="APUUser">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="user_password" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="user_email" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="false" />
+    <Property Name="user_type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="full_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="user_balance" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+</Schema>

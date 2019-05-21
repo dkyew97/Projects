@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">APUPay</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Scan and Pay</string>
+    <string name="title_notifications">History</string>
+</resources>

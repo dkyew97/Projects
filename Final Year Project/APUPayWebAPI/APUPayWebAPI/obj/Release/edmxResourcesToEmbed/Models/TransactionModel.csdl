@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="APUPayModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="APUPayEntities1" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="getrecord" ReturnType="Collection(APUPayModel1.getrecord_Result)" />
+    <FunctionImport Name="getrecordwithdate" ReturnType="Collection(APUPayModel1.getrecordwithdate_Result)">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getHistoryStore" ReturnType="Collection(APUPayModel1.sp_getHistoryStore_Result)">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+      <Parameter Name="storeID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getAllHistoryStore" ReturnType="Collection(APUPayModel1.sp_getAllHistoryStore_Result)">
+      <Parameter Name="storeID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getAllHistoryUser" ReturnType="Collection(APUPayModel1.sp_getAllHistoryUser_Result)">
+      <Parameter Name="userid" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="TransactionRecords" EntityType="APUPayModel1.TransactionRecord" />
+  </EntityContainer>
+  <ComplexType Name="getrecord_Result">
+    <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+    <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="getrecordwithdate_Result">
+    <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+    <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="sp_getHistoryStore_Result">
+    <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+    <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="sp_getAllHistoryStore_Result">
+    <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+    <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="sp_getAllHistoryUser_Result">
+    <Property Type="String" Name="transaction_id" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+    <Property Type="String" Name="store_id" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="user_id" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="transaction_amount" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <EntityType Name="TransactionRecord">
+    <Key>
+      <PropertyRef Name="transaction_id" />
+    </Key>
+    <Property Name="transaction_id" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="store_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_id" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="transaction_amount" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+</Schema>

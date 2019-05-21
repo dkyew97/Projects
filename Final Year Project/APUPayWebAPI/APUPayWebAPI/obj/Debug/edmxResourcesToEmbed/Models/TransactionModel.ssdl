@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="APUPayModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TransactionRecord">
+    <Key>
+      <PropertyRef Name="transaction_id" />
+    </Key>
+    <Property Name="transaction_id" Type="bigint" Nullable="false" />
+    <Property Name="transaction_date" Type="date" Nullable="false" />
+    <Property Name="store_id" Type="varchar" MaxLength="50" />
+    <Property Name="user_id" Type="varchar" MaxLength="9" />
+    <Property Name="transaction_amount" Type="money" />
+  </EntityType>
+  <Function Name="sp_getAllHistoryStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_getAllHistoryUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_getHistoryStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="storeID" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="APUPayModel1StoreContainer">
+    <EntitySet Name="TransactionRecord" EntityType="Self.TransactionRecord" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

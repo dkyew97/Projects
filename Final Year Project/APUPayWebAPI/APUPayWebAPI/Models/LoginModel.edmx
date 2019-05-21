@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="APUPayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APUUser">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="user_password" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="user_email" Type="varchar" MaxLength="21" Nullable="false" />
+          <Property Name="user_type" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="full_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="user_balance" Type="money" />
+        </EntityType>
+        <Function Name="sp_registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="type" Type="varchar" Mode="In" />
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="balance" Type="money" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_updatebalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="balance" Type="money" Mode="In" />
+          <Parameter Name="type" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="APUPayModelStoreContainer">
+          <EntitySet Name="APUUser" EntityType="Self.APUUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="APUPayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="APUPayEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_updatebalance">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="balance" Mode="In" Type="Decimal" />
+            <Parameter Name="type" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_registration">
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="balance" Mode="In" Type="Decimal" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sekecall" ReturnType="Collection(APUPayModel.sekecall_Result)" />
+          <FunctionImport Name="sp_insertsho">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="APUUsers" EntityType="APUPayModel.APUUser" />
+        </EntityContainer>
+        <ComplexType Name="sekecall_Result">
+          <Property Type="String" Name="user_id" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="user_password" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="user_email" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="user_type" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="user_balance" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="full_name" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <EntityType Name="APUUser">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="user_password" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="user_email" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="user_type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="full_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user_balance" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="APUPayModelStoreContainer" CdmEntityContainer="APUPayEntities">
+          <FunctionImportMapping FunctionImportName="sp_updatebalance" FunctionName="APUPayModel.Store.sp_updatebalance" />
+          <FunctionImportMapping FunctionImportName="sp_registration" FunctionName="APUPayModel.Store.sp_registration" />
+          <EntitySetMapping Name="APUUsers">
+            <EntityTypeMapping TypeName="APUPayModel.APUUser">
+              <MappingFragment StoreEntitySet="APUUser">
+                <ScalarProperty Name="user_balance" ColumnName="user_balance" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

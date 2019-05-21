@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="APUPayModelStoreContainer" CdmEntityContainer="APUPayEntities">
+    <FunctionImportMapping FunctionImportName="sp_updatebalance" FunctionName="APUPayModel.Store.sp_updatebalance" />
+    <FunctionImportMapping FunctionImportName="sp_registration" FunctionName="APUPayModel.Store.sp_registration" />
+    <EntitySetMapping Name="APUUsers">
+      <EntityTypeMapping TypeName="APUPayModel.APUUser">
+        <MappingFragment StoreEntitySet="APUUser">
+          <ScalarProperty Name="user_balance" ColumnName="user_balance" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

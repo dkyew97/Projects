@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="APUPayModel2StoreContainer" CdmEntityContainer="ShopEntities">
+    <FunctionImportMapping FunctionImportName="sp_insertshop" FunctionName="APUPayModel2.Store.sp_insertshop" />
+    <FunctionImportMapping FunctionImportName="getinventory" FunctionName="APUPayModel2.Store.getinventory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="APUPayModel2.getinventory_Result">
+          <ScalarProperty Name="store_id" ColumnName="store_id" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="item_price" ColumnName="item_price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_addInventory" FunctionName="APUPayModel2.Store.sp_addInventory" />
+    <FunctionImportMapping FunctionImportName="sp_getinventory" FunctionName="APUPayModel2.Store.sp_getinventory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="APUPayModel2.sp_getinventory_Result">
+          <ScalarProperty Name="store_id" ColumnName="store_id" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="item_price" ColumnName="item_price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Stores">
+      <EntityTypeMapping TypeName="APUPayModel2.Store">
+        <MappingFragment StoreEntitySet="Store">
+          <ScalarProperty Name="store_password" ColumnName="store_password" />
+          <ScalarProperty Name="store_id" ColumnName="store_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

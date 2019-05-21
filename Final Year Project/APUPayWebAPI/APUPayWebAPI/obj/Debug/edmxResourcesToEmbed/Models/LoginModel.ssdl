@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="APUPayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="APUUser">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="user_password" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="user_email" Type="varchar" MaxLength="21" Nullable="false" />
+    <Property Name="user_type" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="full_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="user_balance" Type="money" />
+  </EntityType>
+  <Function Name="sp_registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="balance" Type="money" Mode="In" />
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_updatebalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="balance" Type="money" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="APUPayModelStoreContainer">
+    <EntitySet Name="APUUser" EntityType="Self.APUUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
