@@ -71,7 +71,7 @@ namespace APUPayMobile
                 cipher.Init(CipherMode.EncryptMode, key);
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch { return false; }
         }
         private void GenKey()
         {

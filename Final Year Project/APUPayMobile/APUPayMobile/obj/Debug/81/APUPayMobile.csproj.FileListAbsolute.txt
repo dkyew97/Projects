@@ -115,3 +115,9 @@ C:\Users\Darryl Yew\source\repos\APUPayMobile\APUPayMobile\obj\Debug\81\android\
 C:\Users\Darryl Yew\source\repos\APUPayMobile\APUPayMobile\obj\Debug\81\android\assets\System.Xml.Linq.pdb
 C:\Users\Darryl Yew\source\repos\APUPayMobile\APUPayMobile\obj\Debug\81\android\assets\System.Xml.pdb
 C:\Users\Darryl Yew\source\repos\APUPayMobile\APUPayMobile\obj\Debug\81\APUPayMobile.csprojAssemblyReference.cache
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayMobile\APUPayMobile\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayMobile\APUPayMobile\obj\Debug\81\APUPayMobile.csprojAssemblyReference.cache
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayMobile\APUPayMobile\obj\Debug\81\libraryimports.cache.stamp
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayMobile\APUPayMobile\obj\Debug\81\res.flag
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayMobile\APUPayMobile\obj\Debug\81\APUPayMobile.dll
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayMobile\APUPayMobile\obj\Debug\81\APUPayMobile.pdb

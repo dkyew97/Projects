@@ -1004,11 +1004,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Darryl Yew\\source\\repos\\APUPayMobile\\APUPayMobile\\APUPayMobile.csproj",
+      "projectUniqueName": "C:\\Users\\Darryl Yew\\Documents\\GitHub\\Projects\\Final Year Project\\APUPayMobile\\APUPayMobile\\APUPayMobile.csproj",
       "projectName": "APUPayMobile",
-      "projectPath": "C:\\Users\\Darryl Yew\\source\\repos\\APUPayMobile\\APUPayMobile\\APUPayMobile.csproj",
+      "projectPath": "C:\\Users\\Darryl Yew\\Documents\\GitHub\\Projects\\Final Year Project\\APUPayMobile\\APUPayMobile\\APUPayMobile.csproj",
       "packagesPath": "C:\\Users\\Darryl Yew\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Darryl Yew\\source\\repos\\APUPayMobile\\APUPayMobile\\obj\\",
+      "outputPath": "C:\\Users\\Darryl Yew\\Documents\\GitHub\\Projects\\Final Year Project\\APUPayMobile\\APUPayMobile\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

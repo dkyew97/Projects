@@ -62,7 +62,7 @@ namespace APUPayMobile
                     this.StartActivity(intent);
 
                 }
-                catch (Exception E)
+                catch 
                 {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                     dialog.SetTitle("Invalid QR");

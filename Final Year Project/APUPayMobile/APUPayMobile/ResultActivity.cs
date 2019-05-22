@@ -36,7 +36,7 @@ namespace APUPayMobile
                     user = JsonConvert.DeserializeObject<User>(users);
                     transactionObject.UserID = user.UserID;
                 }
-                catch (Exception e)
+                catch
                 {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                     dialog.SetTitle("Something Went Wrong");
@@ -47,7 +47,7 @@ namespace APUPayMobile
                 txtresult.Text = transactionObject.TransactionSeller;
                 txtamt.Text = transactionObject.TransactionAmount.ToString();
             }
-            if (transactionObject.TransactionAmount < user.UserBalance)
+            if (transactionObject.TransactionAmount <= user.UserBalance)
             {
                 pay.Text = "Pay";
                 pay.SetBackgroundResource(Resource.Drawable.bckGroundTurquise);
@@ -60,7 +60,7 @@ namespace APUPayMobile
         }
         public void gonext(object sender, EventArgs e)
         {
-            if (transactionObject.TransactionAmount < user.UserBalance)
+            if (transactionObject.TransactionAmount <= user.UserBalance)
             {
                 Intent i = new Intent(this, typeof(BiometricActivity));
                 i.PutExtra("transactionObject", JsonConvert.SerializeObject(transactionObject));
