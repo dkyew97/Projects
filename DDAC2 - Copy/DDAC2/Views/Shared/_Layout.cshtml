@@ -1,0 +1,126 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exotic Cars Dealership</title>
+    <style type="text/css">
+        .carousel-item {
+            height: 100vh;
+            min-height: 350px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+</head>
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <div class="navbar-brand">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exotic Cars Dealership</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">@Html.ActionLink("Cars", "Index", "Car", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Orders", "Index", "Reservation", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item dropdown">
+                        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" class="nav-link">Manage Staff</a>
+                    </li>
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+        <div class="container-fluid">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2019 - Exotic Cars Dealership</p>
+            </footer>
+        </div>
+
+     
+
+        @RenderSection("Scripts", required: false)
+    </body>
+}
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Staff"))
+{
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <div class="navbar-brand">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exotic Cars Dealership</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">@Html.ActionLink("Cars", "Index", "Car", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Orders", "Index", "Reservation", null, new { @class = "nav-link" })</li>
+
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+        <div class="container-fluid">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2019 - Exotic Cars Dealership</p>
+            </footer>
+        </div>
+
+        
+
+        @RenderSection("Scripts", required: false)
+    </body>
+}
+else if(!User.IsInRole("Staff") && !User.IsInRole("Admin"))
+{
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="navbar-brand">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exotic Cars Dealership</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">@Html.ActionLink("Browse", "About", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+        <div class="container-fluid">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2019 - Exotic Cars Dealership</p>
+            </footer>
+        </div>
+
+        
+
+        @RenderSection("Scripts", required: false)
+    </body>
+}
+</html>
