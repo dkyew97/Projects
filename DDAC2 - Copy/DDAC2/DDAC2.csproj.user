@@ -15,7 +15,7 @@
     <WebStackScaffolding_DbContextTypeFullName>DDAC2.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
-    <NameOfLastUsedPublishProfile>ExoticCars - Web Deploy</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>ExoticCarDealership - Web Deploy</NameOfLastUsedPublishProfile>
     <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
 </Project>

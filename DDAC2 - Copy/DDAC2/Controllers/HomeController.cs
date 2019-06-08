@@ -29,6 +29,13 @@ namespace DDAC2.Controllers
 
             return View(await _context.CarModel.ToListAsync());
         }
+        [HttpPost]
+        public async Task<IActionResult> About(string id)
+        {
+
+
+            return View(await _context.CarModel.ToListAsync());
+        }
 
         public IActionResult Contact()
         {

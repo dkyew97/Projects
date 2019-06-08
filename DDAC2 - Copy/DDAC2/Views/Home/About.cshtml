@@ -8,13 +8,17 @@
 <div class="card-deck">
     @foreach (var item in Model)
     {
+        <div class="col-3">
     <div class="card">
         <img class="card-img-top" src=@item.PictureUrl alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">@item.CarMake</h5>
             <p class="card-text">@item.CarName</p>
             <p class="card-text"><small class="text-muted">RM. @item.Price</small></p>
+            <a asp-controller="Reservation" asp-action="MakeReservation" title="Manage" class="nav-link" asp-route-id= "@item.CarVinNumber">Buy</a>
         </div>
+    </div>
+
     </div>
     }
 </div>

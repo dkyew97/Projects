@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PictureUrl)
+                <img src="@item.PictureUrl"width="426" height="240"/>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CarVinNumber">Edit</a> |
