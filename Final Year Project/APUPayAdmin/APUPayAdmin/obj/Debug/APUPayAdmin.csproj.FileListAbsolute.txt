@@ -12,3 +12,17 @@ C:\Users\Darryl Yew\Documents\GitHub\FinalYearProject\APUPayAdmin\APUPayAdmin\ob
 C:\Users\Darryl Yew\Documents\GitHub\FinalYearProject\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.exe
 C:\Users\Darryl Yew\Documents\GitHub\FinalYearProject\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.pdb
 C:\Users\Darryl Yew\Documents\GitHub\FinalYearProject\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.csprojAssemblyReference.cache
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\bin\Debug\APUPayAdmin.exe.config
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\bin\Debug\APUPayAdmin.exe
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\bin\Debug\APUPayAdmin.pdb
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.csprojAssemblyReference.cache
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.AddStore.resources
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.AddUser.resources
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.AdminLogin.resources
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.AdminMenu.resources
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.Properties.Resources.resources
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.ReloadMenu.resources
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.csproj.GenerateResource.cache
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.csproj.CoreCompileInputs.cache
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.exe
+C:\Users\Darryl Yew\Documents\GitHub\Projects\Final Year Project\APUPayAdmin\APUPayAdmin\obj\Debug\APUPayAdmin.pdb
