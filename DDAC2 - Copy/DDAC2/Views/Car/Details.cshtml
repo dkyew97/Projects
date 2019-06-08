@@ -1,0 +1,49 @@
+﻿@model DDAC2.Models.CarModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CarModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarVinNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarVinNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CarName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CarMake)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarMake)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PictureUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PictureUrl)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CarVinNumber">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

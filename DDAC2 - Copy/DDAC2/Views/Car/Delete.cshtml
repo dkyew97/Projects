@@ -1,0 +1,52 @@
+﻿@model DDAC2.Models.CarModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CarModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarVinNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarVinNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CarName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CarMake)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarMake)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PictureUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PictureUrl)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CarVinNumber" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
