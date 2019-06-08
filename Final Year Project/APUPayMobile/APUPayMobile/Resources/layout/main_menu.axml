@@ -23,7 +23,7 @@
 		android:layout_height = "wrap_content">
 
 			<android.support.v7.widget.CardView
-			android:layout_width = "5"
+			android:layout_width = "5dp"
 			android:layout_height = "wrap_content"
 			android:layout_columnWeight = "1"
 			android:layout_rowWeight = "1"
